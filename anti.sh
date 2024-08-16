@@ -30,10 +30,10 @@ iptables -A INPUT -i lo -j ACCEPT
 iptables -A INPUT -m state --state ESTABLISHED,RELATED -j ACCEPT
 
 # Bảo vệ chống SYN Flood
-iptables -A INPUT -p tcp --syn -m limit --limit 10/s --limit-burst 20 -j ACCEPT
+iptables -A INPUT -p tcp --syn -m limit --limit 5/s --limit-burst 10 -j ACCEPT
 
 # Giới hạn kết nối mới: chỉ chấp nhận tối đa 10 kết nối mới từ cùng một IP mỗi phút
-iptables -A INPUT -p tcp --syn -m connlimit --connlimit-above 10 --connlimit-mask 32 -j BLACKLIST
+iptables -A INPUT -p tcp --syn -m connlimit --connlimit-above 3 --connlimit-mask 32 -j BLACKLIST
 
 # Giới hạn kích thước gói tin (0 đến 100 byte)
 iptables -A INPUT -p tcp --dport 80 -m length --length 0:100 -j ACCEPT
