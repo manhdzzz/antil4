@@ -1,7 +1,7 @@
 # Anti ddos tcp, syn flood, only allow 80 443 22 and VN
 # MENJMOI COPYRIGHT DO NOT REUP
 # PLS WORK !!!
-!/bin/bash
+#!/bin/bash
 IP_LIST="vn.txt"
 BLACKLIST="blacklist"
 # Xóa tất cả các quy tắc hiện tại
