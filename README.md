@@ -33,21 +33,36 @@ sudo iptables -L -v
 -- block censys:
 
 iptables -A INPUT -s 162.142.125.0/24 -j DROP
+
 iptables -A INPUT -s 167.94.138.0/24 -j DROP
+
 iptables -A INPUT -s 167.94.145.0/24 -j DROP
+
 iptables -A INPUT -s 167.94.146.0/24 -j DROP
+
 iptables -A INPUT -s 167.248.133.0/24 -j DROP
+
 iptables -A INPUT -s 199.45.154.0/24 -j DROP
+
 iptables -A INPUT -s 199.45.155.0/24 -j DROP
+
 iptables -A INPUT -s 206.168.34.0/24 -j DROP
+
 iptables -A INPUT -s 2602:80d:1000:b0cc:e::/80 -j DROP
+
 iptables -A INPUT -s 2620:96:e000:b0cc:e::/80 -j DROP
+
 iptables -A INPUT -s 2602:80d:1003::/112 -j DROP
+
 iptables -A INPUT -s 2602:80d:1004::/112 -j DROP
+
 iptables -A INPUT -p tcp --dport 80 -m string --string "CensysInspect/1.1" --algo bm -j DROP
+
 iptables -A INPUT -p tcp --dport 443 -m string --string "CensysInspect/1.1" --algo bm -j DROP
 
+-- after then:
 
 sudo apt-get install iptables-persistent
+
 sudo netfilter-persistent save
 
